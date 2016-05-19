@@ -11,6 +11,7 @@ var app = express(); // Tells node that we are creating an "express" server
 var PORT = process.env.PORT||7001;
 
 app.use(methodOverride('_method'));
+app.disable('x-powered-by');
 
 sitemap.generate(app);
 

@@ -12,44 +12,6 @@ var userdata = require('../data/userdata');
 // =============================================================
 module.exports = function(app){
 
-	// Search for Specific Character (or all characters) then provides JSON
-// 	app.get('api/submit', function(req, res){
-
-// 		// If the user provides a specific character in the URL...
-// 		if(req.params.characters){
-
-// 			// Then display the JSON for ONLY that character.
-// 			// (Note how we're using the ORM here to run our searches)
-
-// 			//go through character name and find req.params.character then bring the json object
-// 			Character.findAll({
-// 				where: {
-// 					routeName: req.params.characters
-// 				}
-// 			}).then(function(result){
-// 				res.json(result);
-// 			})
-// 		}
-
-// 		// Otherwise...
-// 		else{
-// 			// Otherwise display the data for all of the characters. 
-// 			// (Note how we're using Sequelize here to run our searches)
-// 				Character.findAll({})
-// 					.then(function(result){
-// 						res.json(result);
-// 				})
-// 			};
-
-// 	});
-
-// //login aurthentication
-// app.post('api/login', 
-//   passport.authenticate('local', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.redirect('/');
-//   });
-
 	app.get('/api/:id?', function(req, res){
 		// If the user provides a specific character in the URL...
 		if(req.params.id){
