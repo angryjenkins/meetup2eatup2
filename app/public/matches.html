@@ -14,19 +14,14 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h2>Your Possible Matches</h2>
-			<div class="col-md-12" id="#matches">
-				<div class="media">
-				  <div class="media-left">
-				    <a href="#">
-				      <img class="media-object" src="..." alt="...">
-				    </a>
-				  </div>
-				  <div class="media-body">
-				    <h4 class="media-heading">Media heading</h4>
-				    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro hic similique est molestias, incidunt aut non veniam, quam praesentium dicta adipisci quae dolorem expedita ducimus iure. Quae recusandae cupiditate harum, rem atque corrupti culpa deleniti nesciunt debitis omnis earum a maiores, commodi optio ea fugit fuga accusamus dolores, alias autem.
-				  </div>
-				</div>
+			<h2>Your Matches</h2>
+			<div class="col-md-12" id="matches">
+				matches listed here.
+			</div>
+
+			<h2>Your Suggestions</h2>
+			<div class="col-md-12" id="restaurants">
+					restaurants listed here.
 			</div>
 		</div>
 		<footer>
@@ -36,16 +31,20 @@
 	<!-- add ajax call for matches, ...  -->
 	<script type="text/javascript">
 	$(document).ready(function() {
-		
-
 
 		var currentURL = window.location.origin;
 
 
+		$.get( currentURL + "/data/listings", function( data ) {
+		 	console.log(data);
+		 	console.log('listings loaded.');
+		});
+
 		$.get( currentURL + "/data/matches", function( data ) {
 		 	console.log(data);
-		 	console.log('load performed');
+		 	console.log('matches loaded.');
 		});
+	</script>
 </body>
 </html>
 
