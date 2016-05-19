@@ -1,13 +1,18 @@
 //get client data
-console.log('skdsdjsndijndsjbdsjabdsjbdks')
-var yelp = require("node-yelp");
-var path=require('path');
-var userdata=require('./app/data/userdata.js');
+console.log('yelp module loaded.');
+
+var yelp      = require("node-yelp");
+var path      = require('path');
+
+var userdata  = require('./app/data/userdata.js');
+var listings  = require('./app/data/listings.js')
+
  module.exports=function(app){
 
 app.get('/api/questions',function(req,res){
   res.json(userdata)
 });
+
 app.post('/api/questions',function(req,res){
   console.log('in yelp.js')
   userdata.push(req.body)
@@ -15,8 +20,8 @@ app.post('/api/questions',function(req,res){
   res.json(true);
   console.log(req.body)
   
-var x='steve'
-var client = yelp.createClient({
+var x       ='steve'
+var client  = yelp.createClient({
   oauth: {
     "consumer_key": "blnUGOa1xqRIq5Kvk2NIiw",
     "consumer_secret": "k-VIMJNVzfFn8yA0olc9P2Rk7Os",
@@ -30,12 +35,12 @@ var client = yelp.createClient({
   }
 });
  
- //get user input into here
-console.log(userdata[userdata.length-1].location)
 
-console.log(userdata[userdata.length-1].food)
 var userLocation=userdata[userdata.length-1].location;
 var userFood=userdata[userdata.length-1].food;
+
+console.log(userFood, userLocation);
+
 client.search({
   terms: "food",
   location: ""+userLocation+"",
@@ -44,6 +49,7 @@ client.search({
   var place=[];
   var businesses = data.businesses;
   var location = data.region;
+
   console.log(data.businesses.categories)
 
   // console.log(data.businesses[0].name)
@@ -60,10 +66,22 @@ client.search({
   // console.log(data.businesses[11].name)
   //print out all resteraunts within
   for(var i=0;i<data.businesses.length;i++){
-    console.log(i+1 +' '+ data.businesses[i].name+'  rating: '+data.businesses[i].rating+'  address:  '+data.businesses[i].location.display_address+
-      'latitude: '+data.businesses[i].location.coordinate.latitude+ ' longitude '+data.businesses[i].location.coordinate.longitude )
+
+    var listing = data.businesses[i];
+
+    var business = {
+      name: listing.name,
+      rating: listing.rating,
+      address: listing.location.display_address,
+      lat: listing.location.coordinate.latitude,
+      lng: listing.location.coordinate.longitude
+    }
+
+    listings.push(listing);
+
   }
-   console.log(data.region)
+  console.log(listings);
+  console.log(data.region)
     // 
 });
  
