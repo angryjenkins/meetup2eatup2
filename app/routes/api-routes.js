@@ -6,6 +6,7 @@
 // =============================================================
 var Person 	= require("../model/info.js"); // Pulls out the Character Model
 
+var listings = require('../data/listings');
 // Routes
 // =============================================================
 module.exports = function(app){
@@ -77,6 +78,10 @@ module.exports = function(app){
 
 	});
 
+	app.get('/data/listings', function(req, res){
+		res.json(listings);
+	});
+
 	app.get('/data/matches', function(req, res){
 
 		Person.findAll({
@@ -112,7 +117,7 @@ module.exports = function(app){
 
 	
 
-	app.post('/api/questions', function(req, res){
+	app.post('/data/questions', function(req, res){
 
 		// Take the request...
 		var person = req.body;

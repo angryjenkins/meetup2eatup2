@@ -2,7 +2,6 @@ var userdata= [
 	{
 		location:"07726",
 		food:"italian",
-
 	}
 ];
 

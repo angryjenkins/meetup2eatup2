@@ -9,11 +9,11 @@ var listings  = require('./app/data/listings.js')
 
  module.exports=function(app){
 
-app.get('/api/questions',function(req,res){
+app.get('/data/questions',function(req,res){
   res.json(userdata)
 });
 
-app.post('/api/questions',function(req,res){
+app.post('/data/questions',function(req,res){
   console.log('in yelp.js')
   userdata.push(req.body)
   
