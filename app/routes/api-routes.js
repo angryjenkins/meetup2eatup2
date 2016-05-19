@@ -7,6 +7,7 @@
 var Person 	= require("../model/info.js"); // Pulls out the Character Model
 
 var listings = require('../data/listings');
+var userdata = require('../data/userdata');
 // Routes
 // =============================================================
 module.exports = function(app){
@@ -86,7 +87,7 @@ module.exports = function(app){
 
 		Person.findAll({
 			where: {
-				food: 'NYC'
+				food: userdata[userdata.length-1].food
 			}
 		}).then(function(result){
 			res.json(result);
@@ -129,8 +130,9 @@ module.exports = function(app){
 		  where: {
 		    id: 1
 		  }
+		}).then(function(result){
+			userdata.push(result);
 		});
-
 
 	})
 }
