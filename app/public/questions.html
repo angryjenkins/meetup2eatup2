@@ -13,8 +13,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 	<!--yelp script file -->
-	
-
 </head>
 
 <body>
@@ -30,7 +28,6 @@
 				</button>
 				<a class="navbar-brand" href="#">Let's get you matched up!</a>
 			</div>
-	
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				
@@ -60,8 +57,7 @@
 				</form>
 
 			</div>
-			<p> here</p>
-			 <div id="map" style="height: 400px; width: 500px;">
+			 <div id="map" style="height: 400px; width: auto;">
 			 <div id='results'></div>
 		</div>
 
@@ -90,6 +86,7 @@
 						console.log(data);
 						alert('Updating preferences to ' + data.food + ' in ' + data.location);
 
+					
 				});
 
 				$("#loc").val('');
@@ -101,48 +98,48 @@
 			});
 
 			
-    var locations = [
-      ['Bondi Beach', -10.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
+		    var locations = [
+		      ['Bondi Beach', -10.890542, 151.274856, 4],
+		      ['Coogee Beach', -33.923036, 151.259052, 5],
+		      ['Cronulla Beach', -34.028249, 151.157507, 3],
+		      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+		      ['Maroubra Beach', -33.950198, 151.259302, 1]
+		    ];
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+		    var map = new google.maps.Map(document.getElementById('map'), {
+		      zoom: 10,
+		      center: new google.maps.LatLng(-33.92, 151.25),
+		      mapTypeId: google.maps.MapTypeId.ROADMAP
+		    });
 
-    var infowindow = new google.maps.InfoWindow();
+		    var infowindow = new google.maps.InfoWindow();
 
-    var marker, i;
+		    var marker, i;
 
-    for (i = 0; i < locations.length; i++) { 
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+		    for (i = 0; i < locations.length; i++) { 
+		      marker = new google.maps.Marker({
+		        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+		        map: map
+		      });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
+		      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		        return function() {
+		          infowindow.setContent(locations[i][0]);
+		          infowindow.open(map, marker);
+		        }
+		      })(marker, i));
+		    }
 
 
 		})
-	var currentURL = window.location.origin;
+		var currentURL = window.location.origin;
 
-		// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-		$.ajax({url: currentURL + "/api/questions", method: "GET"}) 
-			.done(function(userdata) {
-				console.log(userdata)
+			// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+			$.ajax({url: currentURL + "/api/questions", method: "GET"}) 
+				.done(function(userdata) {
+					console.log(userdata);
 
-			});
+				});
 
 
 	</script>

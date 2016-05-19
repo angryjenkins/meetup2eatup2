@@ -1,5 +1,13 @@
 #Meetup 2 Eatup 
 
+5/18/2016 
+
+Yelp works - thanks  @smiller5.
+
+5/16/2016
+
+Database signups work - thanks, @mramos1126.
+
 5/15/2016
 The database is on Heroku (Thanks Mauricio) and I have the server pulling my HTML. 
 I changed the home page up a bit, adding the login and signup to a navbar header. Each page will have a header where we can include quick links.

@@ -136,7 +136,7 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#meetMeat').on("click", function(){
-//console.log('test');
+			
 			var newMeetup =	{
 				firstName: $("#firstName").val().trim(),
 				lastName: $("#lastName").val().trim(),
@@ -157,24 +157,25 @@
 
 			var currentURL = window.location.origin;
 
-		$.post( currentURL + '/api/signup', newMeetup)
-			.done(function(data){
-				console.log(data);
-			});
+			$.post( currentURL + '/api/signup', newMeetup)
+				.done(function(data){
+					console.log(data);
+				});
 
-			$("#firstName").val('');
-			$("#lastName").val('');
-			$("#age").val('');
-			$("#email").val('');
-			$("#userName").val('');
-			$("#passWord").val('');
-			$("#food").val('');
-			$("#location").val('');
-			$("#photo").val('');
-			$("#genderPref").val('');
-			$("#gender").val('');
+				$("#firstName").val('');
+				$("#lastName").val('');
+				$("#age").val('');
+				$("#email").val('');
+				$("#userName").val('');
+				$("#passWord").val('');
+				$("#food").val('');
+				$("#location").val('');
+				$("#photo").val('');
+				$("#genderPref").val('');
+				$("#gender").val('');
 
-			return false;
+				document.location.href = '/matches';
+				return false;
 
 			});
 		});
