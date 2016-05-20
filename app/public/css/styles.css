@@ -6,6 +6,10 @@
     height: 100vh;
 }
 
+.memberImg {
+	max-width: 150px;
+}
+
 footer {
 	padding: 18px;
 	text-align: center;

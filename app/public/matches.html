@@ -78,35 +78,6 @@
 
 		var currentURL = window.location.origin;
 
-		$.get( currentURL + "/data/listings", function( data ) {
-		 	console.log(data);
-		 	console.log('listings loaded.');
-
-		 	var showListings = $('#listings');
-
-		 	if (data.length < 1){
-		 		showListings.html("<p class='alert alert-warning'>There are no listings for this food/location combination.</p>")
-		 	} else {
-		 		for (i=0;i<data.length;i++){
-		 			// showListings.append("<p>" + data[i].name);
-
-		 			var restaurantAddress = data[i].location.display_address.toString();
-		 			var summary = data[i].categories.toString();
-
-		 			showListings.append("<div class='media col-md-6'>" +
-											"<div class='media-left'>" +
-											    "<a href=" + data[i].url + " target='_blank'>" +
-											      "<img class='media-object' src=" + data[i].image_url + " alt=" + data[i].name  + "></a></div>" + 
-											  "<div class='media-body'>" +
-											    "<h4 class='media-heading'>" + data[i].name + "</h4>" + 
-											    "<p class='small text-muted'>" + summary +  "</p>" +
-											    "<p class='small'>" + restaurantAddress + "</p>"
-
-											    + "</div></div>");
-		 		}
-		 	}
-		});
-
 		$.get( currentURL + "/data/matches", function( data ) {
 		 	console.log(data);
 		 	console.log('matches loaded.');
@@ -117,7 +88,50 @@
 		 		showMatches.html("<p class='alert alert-warning'>There are no eaters registered with this food/location combination.</p>")
 		 	} else {
 		 		for(i=0;i<data.length;i++){
-		 			showMatches.append("<div class='col-md-12'>" + data[i].firstName);
+
+		 			if(data[i].photo != ""){
+		 				var memberPhoto = data[i].photo;
+		 			} else {
+		 				var memberPhoto = "/placeholder";
+		 			}
+
+		 			showMatches.append("<div class='media'>" +
+		 									"<div class='media-left'>" +
+		 										"<a href='#'>"  + 
+    											"<img class='media-object memberImg' src=" + memberPhoto + " alt=" + data[i].firstName + "></a></div><div class='media-body'>" + "<h4 class='media-heading'>" + data[i].firstName + " " + data[i].lastName[0].toUpperCase() + ".</h4>" +
+      												"<p>Looking for " + data[i].food + " in " + data[i].location + "</p></div></div>");
+		 		}
+		 	}
+		});
+
+		$.get( currentURL + "/data/listings", function( data ) {
+		 	console.log(data);
+		 	console.log('listings loaded.');
+
+		 	var showListings = $('#listings');
+
+		 	if (data.length < 1){
+		 		showListings.html("<p class='alert alert-warning'>There are no listings for this food/location combination.</p>")
+		 	} else {
+	 			var listingCounter = 0;
+
+		 		for (i=0;i<data.length;i++){
+		 			// showListings.append("<p>" + data[i].name);
+
+		 			var restaurantAddress = data[i].location.display_address.toString();
+		 			var summary = data[i].categories.toString();
+		 			listingCounter ++;
+		 			
+		 			showListings.append("<div class='media col-md-6'>" +
+											"<div class='media-left'>" +
+											    "<a href=" + data[i].url + " target='_blank'>" +
+											      "<img class='media-object' src=" + data[i].image_url + " alt=" + data[i].name  + "></a></div>" + 
+											  "<div class='media-body'>" +
+											    "<h4 class='media-heading'><span class='badge'> " + listingCounter + "</span>" + data[i].name + "</h4>" + 
+											    "<p class='small text-muted'>" + summary +  "</p>" +
+											    "<p class='small'>" + restaurantAddress + "</p>"
+
+											    + "</div></div>");
 		 		}
 		 	}
 		});

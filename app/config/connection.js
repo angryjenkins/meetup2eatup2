@@ -13,7 +13,7 @@ var source = {
         host: 'localhost',
         user: 'root',
         password: '04051997',
-        database: "meet2eat"
+        database: "meetupEatup"
     },
 
     jawsDB: {
