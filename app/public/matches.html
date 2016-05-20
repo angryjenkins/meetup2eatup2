@@ -41,7 +41,6 @@
 				</div>
 				<div class="panel-body">
 					<div class="col-md-12" id="matches">
-						matches listed here.
 					</div>
 				</div>
 			</div>
@@ -51,8 +50,7 @@
 					<h2>Listings</h2>
 				</div>
 				<div class="panel-body">
-					<div class="col-md-12" id="restaurants">
-						restaurants listed here.
+					<div class="col-md-12" id="listings">
 					</div>
 				</div>
 			</div>	
@@ -67,15 +65,34 @@
 
 		var currentURL = window.location.origin;
 
-
 		$.get( currentURL + "/data/listings", function( data ) {
 		 	console.log(data);
 		 	console.log('listings loaded.');
+
+		 	var showListings = $('#listings');
+
+		 	if (data.length < 1){
+		 		showListings.html("<p class='alert alert-warning'>There are no listings for this food/location combination.</p>")
+		 	} else {
+		 		for (i=0;i<data.length;i++){
+		 			showListings.append("<p>" + data[i].name);
+		 		}
+		 	}
 		});
 
 		$.get( currentURL + "/data/matches", function( data ) {
 		 	console.log(data);
 		 	console.log('matches loaded.');
+
+		 	var showMatches = $('#matches');
+
+		 	if (data.length < 1){
+		 		showMatches.html("<p class='alert alert-warning'>There are no eaters registered with this food/location combination.</p>")
+		 	} else {
+		 		for(i=0;i<data.length;i++){
+		 			showMatches.append("<p>" + data[i].firstName);
+		 		}
+		 	}
 		});
 	});
 	</script>

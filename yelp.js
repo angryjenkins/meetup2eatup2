@@ -87,7 +87,7 @@ client.search({
   listings.push(yelpResults);
   
   console.log(listings[listings.length-1]);
-  console.log(data.region)
+  console.log(data.region);
     // 
 });
  
