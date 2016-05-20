@@ -8,7 +8,13 @@ var Sequelize = require("sequelize");
 // Lists out connection options
 var source = {
 
-    
+    localhost: {
+        port: 3306,
+        host: 'localhost',
+        user: 'root',
+        password: '04051997',
+        database: "meet2eat"
+    },
 
     jawsDB: {
         port: 3306,
