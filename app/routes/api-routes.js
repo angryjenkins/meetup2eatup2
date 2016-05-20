@@ -47,14 +47,39 @@ module.exports = function(app){
 
 	app.get('/data/matches', function(req, res){
 
-		Person.findAll({
+		var matchQuery = req.body;
+		console.log(matchQuery);
+
+		if(matchQuery.genderPref == "male"){
+			Person.findAll({
 			where: {
-				food: userdata[userdata.length-1].food
+				food: userdata[userdata.length-1].food,
+				location: userdata[userdata.length-1].location,
+				gender: "male"
 			}
-		}).then(function(result){
-			res.json(result);
-		})
-		
+			}).then(function(result){
+				res.json(result);
+			})
+		} else if (matchQuery.genderPref == "female"){
+			Person.findAll({
+			where: {
+				food: userdata[userdata.length-1].food,
+				location: userdata[userdata.length-1].location,
+				gender: "female"
+			}
+			}).then(function(result){
+				res.json(result);
+			})
+		} else {
+			Person.findAll({
+			where: {
+				food: userdata[userdata.length-1].food,
+				location: userdata[userdata.length-1].location,
+			}
+			}).then(function(result){
+				res.json(result);
+			})
+		}
 	})
 
 
@@ -76,6 +101,13 @@ module.exports = function(app){
 			gender: 	person.gender,
 			genderPref: person.genderPref
 		});
+
+		var firstSearch = {
+			food: person.food,
+			location: person.location,
+		}
+
+		userdata.push(firstSearch);
 	})
 
 	
