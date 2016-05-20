@@ -42,7 +42,7 @@ module.exports = function(app){
 	});
 
 	app.get('/data/listings', function(req, res){
-		res.json(listings);
+		res.json(listings[listings.length-1]);
 	});
 
 	app.get('/data/matches', function(req, res){

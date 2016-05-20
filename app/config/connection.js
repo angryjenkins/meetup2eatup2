@@ -8,12 +8,6 @@ var Sequelize = require("sequelize");
 // Lists out connection options
 var source = {
 
-    // localhost: {
-    //     port: 8889,
-    //     host: 'localhost',
-    //     user: 'root',
-    //     password: 'root',
-    //     database: "foodMeat"
     
 
     jawsDB: {
@@ -22,8 +16,6 @@ var source = {
         user: 'v2ei8c4m7ea8cefv',
         password: 'ej0bxbriwcevsjrl',
         database: "pojuecgmi5zf85ka" 
-    //note thawing-everglades-41406 heroku
-
     }
 }
 

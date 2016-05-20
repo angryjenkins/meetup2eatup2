@@ -65,6 +65,9 @@ client.search({
   // console.log(data.businesses[10].name)
   // console.log(data.businesses[11].name)
   //print out all resteraunts within
+
+  var yelpResults = [];
+
   for(var i=0;i<data.businesses.length;i++){
 
     var listing = data.businesses[i];
@@ -77,10 +80,13 @@ client.search({
       lng: listing.location.coordinate.longitude
     }
 
-    listings.push(listing);
+    yelpResults.push(listing);
 
   }
-  console.log(listings);
+
+  listings.push(yelpResults);
+  
+  console.log(listings[listings.length-1]);
   console.log(data.region)
     // 
 });
