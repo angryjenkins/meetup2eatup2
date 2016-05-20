@@ -84,9 +84,6 @@
 				$.post(currentURL + '/data/questions', matchIt)
 					.done(function(data){
 						console.log(data);
-						alert('Updating preferences to ' + data.food + ' in ' + data.location);
-
-
 				});
 
 				$("#loc").val('');
