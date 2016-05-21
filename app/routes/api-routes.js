@@ -104,7 +104,7 @@ module.exports = function(app){
 
 		var firstSearch = {
 			food: person.food,
-			location: person.location,
+			location: person.location
 		}
 
 		userdata.push(firstSearch);
