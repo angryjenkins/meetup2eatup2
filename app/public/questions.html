@@ -72,7 +72,7 @@
 						<label for="#food">Eat Up, ... What?</label>
 						<div class="radio" id="food">
 							<label>
-								<input type="radio" name="food" id="burgers" value="burgers" checked="checked">
+								<input type="radio" name="food" id="burger" value="burgers" checked="checked">
 								Burgers
 							</label>
 							<label>
@@ -135,7 +135,6 @@
 					document.location.href = '/matches';
 				});
 
-
 				return false;
 
 			});
@@ -181,9 +180,7 @@
 			$.ajax({url: currentURL + "/data/questions", method: "GET"}) 
 				.done(function(userdata) {
 					console.log(userdata);
-
 				});
-
 
 	</script>
 	
