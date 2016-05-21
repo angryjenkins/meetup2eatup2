@@ -6,6 +6,13 @@
     height: 100vh;
 }
 
+.test1 img {
+	width: auto;
+	height: 250px;
+	display: block;
+	margin: 0 auto;
+}
+
 .memberImg {
 	max-width: 150px;
 }

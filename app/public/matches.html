@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Meet the Eaters</title>
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="/bs-css">
 	<link rel="stylesheet" href="/css">
 
 
@@ -130,7 +130,8 @@
 											    "<h4 class='media-heading'><span class='badge'> " + listingCounter + "</span>" + data[i].name + "</h4>" + 
 											    "<p class='small text-muted'>" + summary +  "</p>" +
 											    "<p class='small'>" + restaurantAddress + "</p>" +
-											    "<p class='small'>" + data[i].display_phone + "</p>"
+											    "<p class='small'>" + data[i].display_phone + "</p>" + 
+											    "<p class='small'>" + "<img src='" + data[i].rating_img_url_large + "'' + alt='" + data[i].rating +"'></p>"
 
 											    + "</div></div>");
 		 		}

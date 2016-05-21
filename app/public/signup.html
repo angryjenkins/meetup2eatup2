@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Sign Up!</title>
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="/bs-css">
 	<link rel="stylesheet" href="/css">
 
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -107,14 +107,65 @@
 								</label>
 							</div>
 						</div>
-						<div class="form-group col-md-6">
-							<label for="#food">Eat Up, ... What?</label>
-							<input type="text" class="form-control" id="food">
-						</div>
+						
 
 						<div class="form-group col-md-6">
 							<label for="#location">Meet Up ... Where?</label>
-							<input type="text" class="form-control" id="location">
+							<select name="location" id="location" class="form-control">
+								<option value="Baltimore, MD">Baltimore</option>
+								<option value="Boston, MA">Boston</option>
+								<option value="Chicago, IL">Chicago</option>
+								<option value="Dallas, TX">Dallas</option>
+								<option value="Denver, CO">Denver</option>
+								<option value="Las Vegas, NV">Las Vegas</option>
+								<option value="Los Angeles, CA">Los Angeles</option>
+								<option value="Jersey City">Jersey City, NJ</option>
+								<option value="Memphis, TN">Memphis</option>
+								<option value="Miami, FL">Miami</option>
+								<option value="New Brunswick NJ">New Brunswick, NJ</option>
+								<option value="New York City">New York City</option>
+								<option value="New Orleans, LA">New Orleans</option>
+								<option value="Orlando, FL">Orlando</option>
+								<option value="Philadephia, PA">Philadelphia-</option>
+								<option value="Portland, OR">Portland, OR-</option>
+								<option value="San Francisco, CA">San Francisco</option>
+								<option value="Seattle, WA">Seattle</option>
+								<option value="Washington DC">Washington, D.C.</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="#food">Eat Up, ... What?</label>
+							<div class="radio" id="food">
+								<label>
+									<input type="radio" name="food" id="burger" value="burger" checked="checked">
+									Burgers
+								</label>
+								<label>
+									<input type="radio" name="food" id="chinese" value="chinese" checked="checked">
+									Chinese
+								</label>
+								<label>
+									<input type="radio" name="food" id="donuts" value="donuts" checked="checked">
+									Donuts
+								</label>
+								<label>
+									<input type="radio" name="food" id="hot dogs" value="hot dogs" checked="checked">
+									Hot Dogs
+								</label>
+								<label>
+									<input type="radio" name="food" id="pizza" value="pizza" checked="checked">
+									Pizza
+								</label>
+								<label>
+									<input type="radio" name="food" id="soup" value="soup" checked="checked">
+									Soup
+								</label>
+								<label>
+									<input type="radio" name="food" id="thai" value="thai" checked="checked">
+									Thai
+								</label>							
+							</div>
 						</div>
 					</div>
 
@@ -132,6 +183,7 @@
 			&copy; 2016 Mauricio, Matt and Steve.
 		</footer>
 	</div>
+
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#meetMeat').on("click", function(){
@@ -144,8 +196,8 @@
 				email: $("#email").val().trim(),
 				userName: $("#userName").val().trim(),
 				passWord: $("#passWord").val().trim(),
-			 	food: $("#food").val().trim(),
-			 	location: $("#location").val().trim(),
+			 	food: $("input[name = food]:checked").val(),
+			 	location: $("#location option:selected").val(),
 				photo : $("#photo").val().trim(),
 				gender : $("input[name = select]:checked").val(),
 				genderPref : $("input[name = selectPref]:checked").val()
@@ -174,7 +226,7 @@
 				$("#genderPref").val('');
 				$("#gender").val('');
 
-				document.location.href = '/matches';
+				document.location.href = '/questions';
 				return false;
 
 			});

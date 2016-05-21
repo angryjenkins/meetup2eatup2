@@ -2,7 +2,6 @@
 		//app.get(/login)
 		//app.get(/questions)
 
-
 		//app.get(/matches)
 
  var path 		= require('path');
@@ -16,12 +15,10 @@ module.exports = function(app){
 	// Each of the below routes just handles the HTML page that the user gets sent to.
 	app.get('/', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/home.html'));
-		
 	});
 
 	app.get('/login', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/login.html'));
-		
 	});
 
 	app.get('/matches', function(req, res){
@@ -45,16 +42,45 @@ module.exports = function(app){
 	app.get('/placeholder', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/img/person-placeholder.png'));
 	});
-	
-	
-	
- 
-//sucessfull login will go back to home page
-// //failed login will stay on page
-//  app.post('/login',
-//   passport.authenticate('local', { successRedirect: '/questions.html',
-//                                    failureRedirect: '/login' }));
-//   });
 
-// }
+	app.get('/matt', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/matt.jpg'));
+	});
+	
+
+	app.get('/mauricio', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/mauricio.jpg'));
+	});
+
+	app.get('/steve', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/steve.jpg'));
+	});
+
+	app.get('/chinese', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/chinese.jpg'));
+	});
+
+	app.get('/pizza', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/pizza.jpg'));
+	});
+
+	app.get('/burgers', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/burgers.jpg'));
+	});
+
+	app.get('/nb', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/newbrunswick.jpg'));
+	});
+
+	app.get('/jc', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/jerseycity.jpg'));
+	});
+
+	app.get('/nyc', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/img/nyc.jpg'));
+	});
+
+	app.get('/bs-css', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/css/slate-bs-css.css'));
+	});
 }

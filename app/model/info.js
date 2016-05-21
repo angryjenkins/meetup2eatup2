@@ -16,7 +16,7 @@ var sequelize = require("../config/connection.js");
 
 //sequeilize translates for other languages
 
-var Person = sequelize.define("tester", {
+var Person = sequelize.define("Meat2Meets", {
 	id: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
@@ -28,8 +28,6 @@ var Person = sequelize.define("tester", {
 	lastName: {
 		type: Sequelize.STRING,
 	},
-	
-
 	age: {
 		type: Sequelize.INTEGER,
 	},
