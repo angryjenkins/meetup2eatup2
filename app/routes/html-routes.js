@@ -81,6 +81,6 @@ module.exports = function(app){
 	});
 
 	app.get('/bs-css', function(req, res){
-		res.sendFile(path.join(__dirname + '/../public/css/slate-bs-css.css'));
+		res.sendFile(path.join(__dirname + '/../public/css/yeti-bs-css.css'));
 	});
 }
